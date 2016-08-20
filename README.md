@@ -1,6 +1,6 @@
 # ConfigFileParser
-Using Flex &amp; Bison to Parse Config Files 
-
+This archive is about Using Flex &amp; Bison to Parse Config Files .
+## Description File Design
 > Format of the config file is similar to JSON, which is composed of pairs of key-values. The config file is also composed of some tuples, which contain some pairs of key-values. e.g.
 
 ```
@@ -87,3 +87,5 @@ END→;
 NULLV→NULL
 
 ```
+## Postscript
+to be continued...
