@@ -10,4 +10,9 @@ section {
  key2 = 12.34;
 }
 ```
+Therefore,
+```
+section.key1=”string”
+section.key2=12.34
+```
 
