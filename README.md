@@ -1,6 +1,7 @@
 # ConfigFileParser
 This archive is about Using Flex &amp; Bison to Parse Config Files .
 ## Description File Design
+### Key-Values
 > Format of the config file is similar to JSON, which is composed of pairs of key-values. The config file is also composed of some tuples, which contain some pairs of key-values. e.g.
 
 ```
@@ -14,6 +15,7 @@ Therefore,
 section.key1=”string”
 section.key2=12.34
 ```
+### Inheritance Mechanism
 Besides the features above, the config file also supports inheritance mechanism. The symbol of inheritance is shown by ":", e.g.<br>
 ```
 derived_section : section {
@@ -28,6 +30,7 @@ derived_section.key2=12.34
 derived_section.key3=10
 ```
 The types of the config file include int, float, string.<br>
+### Induction Mechanism
 The config file also introduces induction mechanism, which is expressed by "include", e.g.<br>
 The contents of a.config:
 ```
@@ -56,7 +59,8 @@ key1=”str”;
 key2=25;
 }
 ```
-The config file also supports comments, formularized by /**/ or //, e.g.<br>
+### Comments
+The config file also supports comments, formularized by /*comments*/ or //, e.g.<br>
 ```
 /*
 comment
@@ -66,6 +70,7 @@ section {
  key2 = 12.34;
 }
 ```
+## Syntax Design
 To parse the config file, flex & bison is of much efficiency. Before using the mature tools, we should define the grammar, which is in the form of Backus–Naur Form. The config file's  Backus–Naur form is shown below:<br>
 ```
 tuples::=tuple tuples | ε
