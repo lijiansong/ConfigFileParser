@@ -81,24 +81,24 @@ section {
 ## Syntax Design
 To parse the config file, flex & bison is of much efficiency. Before using the mature tools, we should define the grammar, which is in the form of Backus–Naur Form. The config file's  Backus–Naur form is shown below:<br>
 ```
-tuples::=tuple tuples | ε
-tuples::=ID LB entries RB | ID COLON LB entries RB
-entries::=kv entries | tuple entries | ε
-kv::=ID EQ value END
-value::=FLOAT | INT | ctring | NULLV
-cstring::=STRING cstring
+tuples::= tuple tuples | ε
+tuples::= ID LB entries RB | ID COLON LB entries RB
+entries::= kv entries | tuple entries | ε
+kv::= ID EQ value END
+value::= FLOAT | INT | ctring | NULLV
+cstring::= STRING cstring
 
-INT→[0-9]+
+INT→ [0-9]+
 FLOAT→ [+-]?[0-9]+(\.[0-9]*)?
 STRING→ \"(\\.|[^\\"])*\"
 ID→ [a-z_][a-z0-9_\.]*
-LB→{
-RB→}
-COLON→:
+LB→ {
+RB→ }
+COLON→ :
 EQ→ =
-END→;
-NULLV→NULL
+END→ ;
+NULLV→ NULL
 
 ```
 ## Postscript
-to be continued...
+To be continued...
