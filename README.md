@@ -98,5 +98,18 @@ END→ ;
 NULLV→ NULL
 
 ```
+## Usage
+To Compile the source code, you need to install git & make. You can use the following command line to complie them:
+```
+$ git clone https://github.com/lijiansong/ConfigFileParser
+$ cd ConfigFileParser
+$ make
+```
+After the above cmds, you would get an executable file, named *config_parser*, and a static library suffixed by *.a*---*lib_cfg_parser.a*. You can execute it like this( before use it you need to write a config file that is formulized by the grammar defined above ):
+```
+$ ./config_parser test.config
+```
+You can also call the static library *lib_cfg_parser.a* in your own program.
+
 ## Postscript
 To be continued...
