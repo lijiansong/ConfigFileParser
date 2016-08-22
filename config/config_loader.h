@@ -1,6 +1,5 @@
-
-#ifndef CONFIGLOADER_H_
-#define CONFIGLOADER_H_
+#ifndef CONFIG_CONFIGLOADER_H_
+#define CONFIG_CONFIGLOADER_H_
 
 #include <fstream>
 #include <string>
@@ -9,7 +8,7 @@
 
 typedef std::list<std::string> StringList;
 
-// Loads a configuration file from disk, recursively loading included files.
+// Loads a config file from disk, recursively loading included files.
 class ConfigLoader {
 public:
   ConfigLoader();

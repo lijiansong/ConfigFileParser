@@ -1,32 +1,40 @@
 %{
-#include<iostream>
-#include<string>
-#include"config_map_builder.h"
-#include"config_map.h"
+
+#include <iostream>
+#include <string>
+#include "config/config_map_builder.h"
+
 #define YYERROR_VERBOSE 1
 
 int yylex();
 int yyerror(ConfigMapBuilder *builder, const char *p);
 int yyget_lineno();
 char *yyget_text();
-
 %}
-%parse-param	{ConfigMapBuilder *builder_}
+
+%parse-param {ConfigMapBuilder *builder_}
+
 %union {
-	std::string *sval;
-	class Constant *constant;
+  std::string *sval;
+  class Constant *constant;
 }
 
 %token<sval> INT
 %token<sval> FLOAT
 %token<sval> STRING
 %token<sval> ID
-%token LB RB COLON EQ END NULLV
+%token LB
+%token RB
+%token COLON
+%token EQ
+%token END
+%token NULLV
 
-%type<constant> value
-%type<sval> cstring
+%type <constant> value
+%type <sval> cstring
 
 %%
+
 tuples: tuple tuples
       | /* empty */
       ;
@@ -59,12 +67,11 @@ cstring: STRING cstring { $$ = new std::string(
      ;
 
 %%
-int yyerror(ConfigMapBuilder *builder, const char *p) 
-{
+
+int yyerror(ConfigMapBuilder *builder, const char *p) {
   std::cerr << p
       << " line " << yyget_lineno()
       << " token " << yyget_text()
       << std::endl;
   return 1;
 }
-

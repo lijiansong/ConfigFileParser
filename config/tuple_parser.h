@@ -1,9 +1,12 @@
 #ifndef TUPLEPARSER_H_
 #define TUPLEPARSER_H_
+
 #include <map>
 #include <string>
-#include "config_map_builder.h"
-#include "config_map.h"
+
+#include "config/config_map_builder.h"
+#include "config/config_map.h"
+
 // Example config file:
 // a {
 //  k1 = 10;
@@ -30,10 +33,11 @@
 //
 // You can also include files as follows:
 // #include "file_name"
+
 // Parses from a string. Does not handle includes.
 ConfigMap *parse_config_string(const std::string& input_string);
 
 // Parses from a file. Handles includes.
 ConfigMap *parse_config_file(const std::string& input_file);
 
-#endif
+#endif /* TUPLEPARSER_H_ */

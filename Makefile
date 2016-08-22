@@ -1,4 +1,6 @@
-#Makefile
+
+# Makefile
+
 CC := g++
 # Optimized flags
 CFLAGS := -Wall -g -O2 -I.
@@ -9,19 +11,19 @@ LIBS :=
 LFLAGS :=
 
 OBJ_UTIL = \
-  util.o
+  util/util.o
 
 OBJ_CONFIG = \
-  tuple.yy.o \
-  tuple.tab.o \
-  config_map_builder.o \
-  tuple_parser.o \
-  config_loader.o \
-  config_map.o \
-  constant.o
+  config/tuple.yy.o \
+  config/tuple.tab.o \
+  config/config_map_builder.o \
+  config/tuple_parser.o \
+  config/config_loader.o \
+  config/config_map.o \
+  config/constant.o
 
 MAIN_OBJ = \
-  config_main.o
+  config/config_main.o
 
 OBJ_LIB := \
   $(OBJ_UTIL) \
@@ -33,7 +35,7 @@ PROGRAMS = \
   config_parser
 
 LIBRARY = \
-  lib_cfg_parser.a
+  libtupler.a
 
 all: $(PROGRAMS) $(LIBRARY)
 
@@ -69,10 +71,10 @@ endif
 %.tab.c %.tab.h: %.y
 	bison -d $*.y -o $@
 
-config_parser: config_main.o $(OBJ_LIB)
-	$(CC) $(LFLAGS) -o $@ config_main.o $(OBJ_LIB) $(LIBS) -pthread
+config_parser: config/config_main.o $(OBJ_LIB)
+	$(CC) $(LFLAGS) -o $@ config/config_main.o $(OBJ_LIB) $(LIBS) -pthread
 
-lib_cfg_parser.a: $(OBJ_LIB)
+libtupler.a: $(OBJ_LIB)
 	ar -rs $@ $(OBJ_LIB)
 
 clean:
@@ -81,5 +83,5 @@ clean:
 	@rm -f *.a
 	@rm -f $(ALL_OBJ)
 	@rm -f $(DEPS)
-	@rm -f *.tab.*
-	@rm -f *.yy.c
+	@rm -f config/*.tab.*
+	@rm -f config/*.yy.c
