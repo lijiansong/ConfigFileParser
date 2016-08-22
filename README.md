@@ -6,6 +6,7 @@ This archive is about Using Flex &amp; Bison to Parse Config Files. The contens 
   * [Induction Mechanism](#induction-mechanism)
   * [Comments](#comments)
 * [Syntax Design](#syntax-design)
+* [Usage](#usage)
 * [Postscript](#postscript)
 
 ## Description File Design
