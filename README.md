@@ -49,7 +49,7 @@ section_a {
 ```
 The contents of b.config:
 ```
-#include”a.config”
+#include "a.config"
 section_b {
  key1 = "str1";
  key2 = 12.34;
@@ -70,9 +70,7 @@ key2=25;
 ### Comments
 The config file also supports comments, formularized by /*comments*/ or //, e.g.<br>
 ```
-/*
-comment
-*/
+//comment
 section {
  key1 = /* comment*/ "string";
  key2 = 12.34;
