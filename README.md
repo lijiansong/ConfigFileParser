@@ -23,8 +23,8 @@ section {
 > Therefore,
 
 ```
-section.key1=”string”
-section.key2=12.34
+section.key1 = "string"
+section.key2 = 12.34
 ```
 ### Inheritance Mechanism
 > Besides the features above, the config file also supports inheritance mechanism. The symbol of inheritance is shown by ":", e.g.<br>
@@ -38,9 +38,9 @@ derived_section : section {
 > Therefore,
 
 ```
-derived_section.key1=”override string”
-derived_section.key2=12.34
-derived_section.key3=10
+derived_section.key1 = "override string"
+derived_section.key2 = 12.34
+derived_section.key3 = 10
 ```
 > The types of the config file include int, float, string.<br>
 
@@ -122,7 +122,7 @@ $ make
 ```
 $ ./config_parser test.config
 ```
-> You can also call the static library *lib_cfg_parser.a* in your own program.
+> You can also call the static library *lib_cfg_parser.a* in your own program and use *"make clean"* cmd to delete the temporary output files.
 
 ## Postscript
 > To be continued...
