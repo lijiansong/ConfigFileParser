@@ -19,13 +19,16 @@ section {
  key2 = 12.34;
 }
 ```
-Therefore,
+
+> Therefore,
+
 ```
 section.key1=”string”
 section.key2=12.34
 ```
 ### Inheritance Mechanism
 > Besides the features above, the config file also supports inheritance mechanism. The symbol of inheritance is shown by ":", e.g.<br>
+
 ```
 derived_section : section {
   key1 = "override string";
@@ -33,15 +36,18 @@ derived_section : section {
 }
 ```
 > Therefore,
+
 ```
 derived_section.key1=”override string”
 derived_section.key2=12.34
 derived_section.key3=10
 ```
 > The types of the config file include int, float, string.<br>
+
 ### Induction Mechanism
 > The config file also introduces induction mechanism, which is expressed by "include", e.g.<br>
 > The contents of a.config:
+
 ```
 section_a {
  key1 = "string";
@@ -49,6 +55,7 @@ section_a {
 }
 ```
 > The contents of b.config:
+
 ```
 #include "a.config"
 section_b {
@@ -70,6 +77,7 @@ key2=25;
 ```
 ### Comments
 > The config file also supports comments, formularized by /*comments*/ or //, e.g.<br>
+
 ```
 //comment
 section {
@@ -79,6 +87,7 @@ section {
 ```
 ## Syntax Design
 > To parse the config file, flex & bison is of much efficiency. Before using the mature tools, we should define the grammar, which is in the form of Backus–Naur Form. The config file's  Backus–Naur form is shown below:<br>
+
 ```
 tuples::= tuple tuples | ε
 tuples::= ID LB entries RB | ID COLON LB entries RB
@@ -97,7 +106,6 @@ COLON→ :
 EQ→ =
 END→ ;
 NULLV→ NULL
-
 ```
 
 ## Usage
@@ -110,6 +118,7 @@ $ cd ConfigFileParser
 $ make
 ```
 > After the above cmds, you would get an executable file, named *config_parser*, and a static library suffixed by *.a*, named *lib_cfg_parser.a*. You can execute it like this( before use it you need to write a config file that is formulized by the grammar defined above ):
+
 ```
 $ ./config_parser test.config
 ```
