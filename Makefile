@@ -35,7 +35,7 @@ PROGRAMS = \
   config_parser
 
 LIBRARY = \
-  libtupler.a
+  lib_cfg_parser.a
 
 all: $(PROGRAMS) $(LIBRARY)
 
@@ -74,7 +74,7 @@ endif
 config_parser: config/config_main.o $(OBJ_LIB)
 	$(CC) $(LFLAGS) -o $@ config/config_main.o $(OBJ_LIB) $(LIBS) -pthread
 
-libtupler.a: $(OBJ_LIB)
+lib_cfg_parser.a: $(OBJ_LIB)
 	ar -rs $@ $(OBJ_LIB)
 
 clean:
