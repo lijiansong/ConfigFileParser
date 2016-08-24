@@ -26,6 +26,8 @@ section {
 section.key1 = "string"
 section.key2 = 12.34
 ```
+[↑ top](#configfileparser)
+
 ### Inheritance Mechanism
 > Besides the features above, the config file also supports inheritance mechanism. The symbol of inheritance is shown by ":", e.g.<br>
 
@@ -43,6 +45,7 @@ derived_section.key2 = 12.34
 derived_section.key3 = 10
 ```
 > The types of the config file include int, float, string.<br>
+[↑ top](#configfileparser)
 
 ### Induction Mechanism
 > The config file also introduces induction mechanism, which is expressed by "include", e.g.<br>
@@ -75,6 +78,8 @@ key1=”str”;
 key2=25;
 }
 ```
+[↑ top](#configfileparser)
+
 ### Comments
 > The config file also supports comments, formularized by /*comments*/ or //, e.g.<br>
 
@@ -85,6 +90,8 @@ section {
  key2 = 12.34;
 }
 ```
+[↑ top](#configfileparser)
+
 ## Syntax Design
 > To parse the config file, flex & bison is of much efficiency. Before using the mature tools, we should define the grammar, which is in the form of Backus–Naur Form. The config file's  Backus–Naur form is shown below:<br>
 
@@ -107,6 +114,7 @@ EQ→ =
 END→ ;
 NULLV→ NULL
 ```
+[↑ top](#configfileparser)
 
 ## Usage
 
@@ -123,6 +131,8 @@ $ make
 $ ./config_parser test.config
 ```
 > You can also call the static library *lib_cfg_parser.a* in your own program and use *"make clean"* cmd to delete the temporary output files.
+
+[↑ top](#configfileparser)
 
 ## Postscript
 > To be continued...
