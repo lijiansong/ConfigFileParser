@@ -44,7 +44,8 @@ derived_section.key1 = "override string"
 derived_section.key2 = 12.34
 derived_section.key3 = 10
 ```
-> The types of the config file include int, float, string.<br>
+> The types of the config file include int, float, string.
+
 [↑ top](#configfileparser)
 
 ### Induction Mechanism
