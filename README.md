@@ -1,4 +1,4 @@
-# ConfigFileParser
+# Config File Parser
 This archive is about Using Flex &amp; Bison to Parse Config Files. The contents is shown below:<br>
 * [Description File Design](#description-file-design)
   * [Key-Values](#key-values)
