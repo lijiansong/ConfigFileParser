@@ -10,8 +10,9 @@ This archive is about Using Flex &amp; Bison to Parse Config Files. The contents
 * [Postscript](#postscript)
 
 ## Description File Design
+
 ### Key-Values
-> Format of the config file is similar to JSON, which is composed of pairs of key-values. The config file is also composed of some tuples, which contain some pairs of key-values. e.g.
+Format of the config file is similar to JSON, which is composed of pairs of key-values. The config file is also composed of some tuples, which contain some pairs of key-values. e.g.
 
 ```
 section {
@@ -20,16 +21,17 @@ section {
 }
 ```
 
-> Therefore,
+Therefore,
 
 ```
 section.key1 = "string"
 section.key2 = 12.34
 ```
-[↑ top](#configfileparser)
+[↑ top](#config-file-parser)
 
 ### Inheritance Mechanism
-> Besides the features above, the config file also supports inheritance mechanism. The symbol of inheritance is shown by ":", e.g.<br>
+
+Besides the features above, the config file also supports inheritance mechanism. The symbol of inheritance is shown by ":", e.g.<br>
 
 ```
 derived_section : section {
@@ -37,20 +39,21 @@ derived_section : section {
   key3 = 10;
 }
 ```
-> Therefore,
+Therefore,
 
 ```
 derived_section.key1 = "override string"
 derived_section.key2 = 12.34
 derived_section.key3 = 10
 ```
-> The types of the config file include int, float, string.
+The types of the config file include int, float, string.
 
-[↑ top](#configfileparser)
+[↑ top](#config-file-parser)
 
 ### Induction Mechanism
-> The config file also introduces induction mechanism, which is expressed by "include", e.g.<br>
-> The contents of a.config:
+The config file also introduces induction mechanism, which is expressed by "include", e.g.<br>
+
+The contents of a.config:
 
 ```
 section_a {
@@ -58,7 +61,8 @@ section_a {
  key2 = 12.34;
 }
 ```
-> The contents of b.config:
+
+The contents of b.config:
 
 ```
 #include "a.config"
@@ -79,10 +83,10 @@ key1=”str”;
 key2=25;
 }
 ```
-[↑ top](#configfileparser)
+[↑ top](#config-file-parser)
 
 ### Comments
-> The config file also supports comments, formularized by /*comments*/ or //, e.g.<br>
+The config file also supports comments, formularized by /*comments*/ or //, e.g.<br>
 
 ```
 //comment
@@ -91,10 +95,11 @@ section {
  key2 = 12.34;
 }
 ```
-[↑ top](#configfileparser)
+[↑ top](#config-file-parser)
 
 ## Syntax Design
-> To parse the config file, flex & bison is of much efficiency. Before using the mature tools, we should define the grammar, which is in the form of Backus–Naur Form. The config file's  Backus–Naur form is shown below:<br>
+
+To parse the config file, flex & bison is of much efficiency. Before using the mature tools, we should define the grammar, which is in the form of Backus–Naur Form. The config file's  Backus–Naur form is shown below:<br>
 
 ```
 tuples::= tuple tuples | ε
@@ -115,26 +120,29 @@ EQ→ =
 END→ ;
 NULLV→ NULL
 ```
-[↑ top](#configfileparser)
+[↑ top](#config-file-parser)
 
 ## Usage
 
-> To Compile the source code, you need to install git & make. You can use the following command line to complie them:
+To Compile the source code, you need to install git & make. You can use the following command line to complie them:
 
 ```
 $ git clone https://github.com/lijiansong/ConfigFileParser
 $ cd ConfigFileParser
 $ make
 ```
-> After the above cmds, you would get an executable file, named *config_parser*, and a static library suffixed by *.a*, named *lib_cfg_parser.a*. You can execute it like this( before use it you need to write a config file that is formulized by the grammar defined above ):
+
+After the above cmds, you would get an executable file, named *config_parser*, and a static library suffixed by *.a*, named *lib_cfg_parser.a*. You can execute it like this( before use it you need to write a config file that is formulized by the grammar defined above ):
 
 ```
 $ ./config_parser test.config
 ```
-> You can also call the static library *lib_cfg_parser.a* in your own program and use *"make clean"* cmd to delete the temporary output files.
 
-[↑ top](#configfileparser)
+You can also call the static library *lib_cfg_parser.a* in your own program and use *"make clean"* cmd to delete the temporary output files.
+
+[↑ top](#config-file-parser)
 
 ## Postscript
-> To be continued...
+
+To be continued...
 
