@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Fixes dependencies on a .d file
+#
 # Example:
 #
 # input dir/in.d:
@@ -13,6 +14,7 @@
 # dir/b.cc:
 # dir/b.h:
 # dir2/d.h
+# TODO: rewrite these cmds inner Makefile
 
 if [ $# -ne 1 ]
 then

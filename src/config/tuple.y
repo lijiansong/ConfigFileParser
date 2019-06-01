@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include "config/config_map_builder.h"
+#include "src/config/config_map_builder.h"
 
 #define YYERROR_VERBOSE 1
 

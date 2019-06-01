@@ -1,15 +1,12 @@
-#include "config/config_loader.h"
-
 #include <stdlib.h>
 #include <list>
 #include <string>
 #include <set>
 #include <iostream>
 
-//#include <glog/logging.h>
-
-#include "config/config_map.h"
-#include "util/util.h"
+#include "src/config/config_loader.h"
+#include "src/config/config_map.h"
+#include "src/util/util.h"
 
 ConfigLoader::ConfigLoader() {
 }
@@ -71,12 +68,12 @@ StringList::iterator ConfigLoader::LoadInternal(
 
   std::fstream fin;
 
-  std::cout << "loading file " << file_name;
+  std::cout << "loading file " << file_name << '\n';
 
   fin.open(file_name.c_str(), std::ios::in);
 
   if (!fin.good()) {
-    std::cout << "could not open " << file_name;
+    std::cout << "could not open " << file_name << '\n';
     exit(1);
   }
 

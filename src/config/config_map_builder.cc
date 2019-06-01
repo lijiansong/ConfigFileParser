@@ -1,16 +1,14 @@
-#include "config/config_map_builder.h"
+#include "src/config/config_map_builder.h"
 
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
 
-#include "config/config_map.h"
+#include "src/config/config_map.h"
 
-ConfigMapBuilder::ConfigMapBuilder() {
-}
+ConfigMapBuilder::ConfigMapBuilder() {}
 
-ConfigMapBuilder::~ConfigMapBuilder() {
-}
+ConfigMapBuilder::~ConfigMapBuilder() {}
 
 void ConfigMapBuilder::StartSection(std::string *section, std::string *parent) {
   section_ = ConfigMap::Push(section_, *section);

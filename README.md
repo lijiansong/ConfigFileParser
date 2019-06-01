@@ -1,5 +1,7 @@
 # Config File Parser
+
 This archive is about Using Flex &amp; Bison to Parse Config Files. The contents is shown below:<br>
+
 * [Description File Design](#description-file-design)
   * [Key-Values](#key-values)
   * [Inheritance Mechanism](#inheritance-mechanism)
@@ -12,6 +14,7 @@ This archive is about Using Flex &amp; Bison to Parse Config Files. The contents
 ## Description File Design
 
 ### Key-Values
+
 Format of the config file is similar to JSON, which is composed of pairs of key-values. The config file is also composed of some tuples, which contain some pairs of key-values. e.g.
 
 ```
@@ -51,6 +54,7 @@ The types of the config file include int, float, string.
 [↑ top](#config-file-parser)
 
 ### Induction Mechanism
+
 The config file also introduces induction mechanism, which is expressed by "include", e.g.<br>
 
 The contents of a.config:
@@ -86,6 +90,7 @@ key2=25;
 [↑ top](#config-file-parser)
 
 ### Comments
+
 The config file also supports comments, formularized by /*comments*/ or //, e.g.<br>
 
 ```
@@ -135,7 +140,7 @@ $ make
 After the above cmds, you would get an executable file, named *config_parser*, and a static library suffixed by *.a*, named *lib_cfg_parser.a*. You can execute it like this( before use it you need to write a config file that is formulized by the grammar defined above ):
 
 ```
-$ ./config_parser test.config
+$ ./config-parser test.config
 ```
 
 You can also call the static library *lib_cfg_parser.a* in your own program and use *"make clean"* cmd to delete the temporary output files.

@@ -4,8 +4,8 @@
 #include <map>
 #include <string>
 
-#include "config/config_map_builder.h"
-#include "config/config_map.h"
+#include "src/config/config_map_builder.h"
+#include "src/config/config_map.h"
 
 // Example config file:
 // a {

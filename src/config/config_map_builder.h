@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include "config/config_map.h"
-#include "config/constant.h"
+#include "src/config/config_map.h"
+#include "src/config/constant.h"
 
 typedef std::pair<std::string, std::string> StringPair;
 

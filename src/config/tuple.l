@@ -1,9 +1,9 @@
 %{
 #include <iostream>
 #include <cstdlib>
-#include "config/config_map_builder.h"
+#include "src/config/config_map_builder.h"
 
-#include "config/tuple.tab.h"
+#include "src/config/tuple.tab.h"
 
 %}
 

@@ -11,16 +11,16 @@ LIBS :=
 LFLAGS :=
 
 OBJ_UTIL = \
-  util/util.o
+  src/util/util.o
 
 OBJ_CONFIG = \
-  config/tuple.yy.o \
-  config/tuple.tab.o \
-  config/config_map_builder.o \
-  config/tuple_parser.o \
-  config/config_loader.o \
-  config/config_map.o \
-  config/constant.o
+  src/config/tuple.yy.o \
+  src/config/tuple.tab.o \
+  src/config/config_map_builder.o \
+  src/config/tuple_parser.o \
+  src/config/config_loader.o \
+  src/config/config_map.o \
+  src/config/constant.o
 
 MAIN_OBJ = \
   config/config_main.o
@@ -32,7 +32,7 @@ OBJ_LIB := \
 ALL_OBJ := $(OBJ_LIB) $(MAIN_OBJ)
 
 PROGRAMS = \
-  config_parser
+  config-parser
 
 LIBRARY = \
   lib_cfg_parser.a
@@ -51,11 +51,11 @@ endif
 #  use fix_dep.sh to add correct directories to .d files.
 %.d: %.cc
 	g++ -MM -MG $(CFLAGS) $*.cc > $@
-	./scripts/fix_dep.sh $@
+	./tools/dep_gen.sh $@
 
 %.d: %.c
 	g++ -MM -MG $(CFLAGS) $*.c > $@
-	./scripts/fix_dep.sh $@
+	./tools/dep_gen.sh $@
 
 # rule to build object files
 %.o: %.cc
@@ -71,8 +71,8 @@ endif
 %.tab.c %.tab.h: %.y
 	bison -d $*.y -o $@
 
-config_parser: config/config_main.o $(OBJ_LIB)
-	$(CC) $(LFLAGS) -o $@ config/config_main.o $(OBJ_LIB) $(LIBS) -pthread
+$(PROGRAMS): src/config/config_main.o $(OBJ_LIB)
+	$(CC) $(LFLAGS) -o $@ src/config/config_main.o $(OBJ_LIB) $(LIBS) -pthread
 
 lib_cfg_parser.a: $(OBJ_LIB)
 	ar -rs $@ $(OBJ_LIB)
@@ -82,6 +82,7 @@ clean:
 	@rm -f *.o
 	@rm -f *.a
 	@rm -f $(ALL_OBJ)
+	@rm -f $(PROGRAMS)
 	@rm -f $(DEPS)
-	@rm -f config/*.tab.*
-	@rm -f config/*.yy.c
+	@rm -f src/config/*.tab.*
+	@rm -f src/config/*.yy.c

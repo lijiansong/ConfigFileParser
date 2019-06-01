@@ -1,5 +1,3 @@
-#include "config/tuple_parser.h"
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -10,10 +8,9 @@
 #include <map>
 #include <string>
 
-//#include <glog/logging.h>
-
-#include "config/config_map_builder.h"
-#include "config/config_loader.h"
+#include "src/config/tuple_parser.h"
+#include "src/config/config_map_builder.h"
+#include "src/config/config_loader.h"
 
 // External functions defined by bison/flex
 typedef struct yy_buffer_state *YY_BUFFER_STATE;

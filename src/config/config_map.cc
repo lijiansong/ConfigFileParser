@@ -1,17 +1,13 @@
-
-#include "config/config_map.h"
-
 #include <stdlib.h>
 #include <list>
 #include <string>
 #include <set>
 #include <sstream>
 
-//#include <glog/logging.h>
-
-#include "util/util.h"
-#include "config/config_loader.h"
-#include "config/tuple_parser.h"
+#include "src/util/util.h"
+#include "src/config/config_loader.h"
+#include "src/config/tuple_parser.h"
+#include "src/config/config_map.h"
 
 // ConfigMap methods
 
