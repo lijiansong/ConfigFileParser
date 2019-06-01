@@ -23,7 +23,7 @@ OBJ_CONFIG = \
   src/config/constant.o
 
 MAIN_OBJ = \
-  config/config_main.o
+  src/config/config_main.o
 
 OBJ_LIB := \
   $(OBJ_UTIL) \
