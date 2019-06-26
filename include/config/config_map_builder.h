@@ -1,14 +1,14 @@
-#ifndef CONFIG_MAP_BUILDER_H_
-#define CONFIG_MAP_BUILDER_H_
+#ifndef _CONFIG_MAP_BUILDER_H_
+#define _CONFIG_MAP_BUILDER_H_
 
 #include <string>
 
-#include "src/config/config_map.h"
-#include "src/config/constant.h"
+#include "config/config_map.h"
+#include "config/constant.h"
 
-typedef std::pair<std::string, std::string> StringPair;
+using StringPair = std::pair<std::string, std::string>;
 
-// Builds a ConfigMap. Used by the parser (tuple.y) to build a config map
+// Builds a ConfigMap. Used by the parser (lang.yy) to build a config map
 // from a config file.
 class ConfigMapBuilder {
 public:
@@ -34,4 +34,4 @@ private:
   ConfigMap config_map_;
 };
 
-#endif /* CONFIG_MAP_BUILDER_H_ */
+#endif /* _CONFIG_MAP_BUILDER_H_ */

@@ -1,10 +1,9 @@
-#include "src/config/config_map_builder.h"
-
 #include <iostream>
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 
-#include "src/config/config_map.h"
+#include "config/config_map.h"
+#include "config/config_map_builder.h"
 
 ConfigMapBuilder::ConfigMapBuilder() {}
 

@@ -1,12 +1,12 @@
-#ifndef CONFIG_CONFIGLOADER_H_
-#define CONFIG_CONFIGLOADER_H_
+#ifndef _CONFIG_CONFIG_LOADER_H_
+#define _CONFIG_CONFIG_LOADER_H_
 
 #include <fstream>
 #include <string>
 #include <list>
 #include <map>
 
-typedef std::list<std::string> StringList;
+using StringList = std::list<std::string>;
 
 // Loads a config file from disk, recursively loading included files.
 class ConfigLoader {
@@ -28,4 +28,4 @@ private:
   int CleanLine(std::string& line, char *out);
 };
 
-#endif /* CONFIG_CONFIGLOADER_H_ */
+#endif /* _CONFIG_CONFIG_LOADER_H_ */

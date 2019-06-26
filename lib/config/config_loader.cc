@@ -4,9 +4,9 @@
 #include <set>
 #include <iostream>
 
-#include "src/config/config_loader.h"
-#include "src/config/config_map.h"
-#include "src/util/util.h"
+#include "config/config_loader.h"
+#include "config/config_map.h"
+#include "util/util.h"
 
 ConfigLoader::ConfigLoader() {
 }

@@ -1,15 +1,16 @@
-#include "src/util/util.h"
-
-#include <math.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <string.h>
-
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
+
+#include <sys/stat.h>
+#include <unistd.h>
+
+
+#include "util/util.h"
 
 double Elapsed(time_t start, time_t finish) {
   return ((double) (finish - start) / (double) CLOCKS_PER_SEC);
@@ -25,7 +26,7 @@ char * ReadFile(const char *name, int &size) {
   fin.open(name, std::ios::in | std::ios::binary);
 
   if (!fin.good()) {
-    std::cout << "could not open file " << name;
+    std::cout << "Can't open file " << name;
     exit(1);
   }
 
@@ -94,7 +95,6 @@ int Tokenize(const std::string& line, char sep, std::string *out) {
   for (int i = 0; i < n; i++) {
     if (s[i] == sep) {
       out[pos] = line.substr(start, i - start);
-
       start = i + 1;
       pos++;
     }

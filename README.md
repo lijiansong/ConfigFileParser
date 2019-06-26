@@ -9,7 +9,6 @@ This archive is about Using Flex &amp; Bison to Parse Config Files. The contents
   * [Comments](#comments)
 * [Syntax Design](#syntax-design)
 * [Usage](#usage)
-* [Postscript](#postscript)
 
 ## Description File Design
 
@@ -30,6 +29,7 @@ Therefore,
 section.key1 = "string"
 section.key2 = 12.34
 ```
+
 [↑ top](#config-file-parser)
 
 ### Inheritance Mechanism
@@ -42,6 +42,7 @@ derived_section : section {
   key3 = 10;
 }
 ```
+
 Therefore,
 
 ```
@@ -87,6 +88,7 @@ key1=”str”;
 key2=25;
 }
 ```
+
 [↑ top](#config-file-parser)
 
 ### Comments
@@ -114,17 +116,19 @@ kv::= ID EQ value END
 value::= FLOAT | INT | ctring | NULLV
 cstring::= STRING cstring
 
-INT→ [0-9]+
-FLOAT→ [+-]?[0-9]+(\.[0-9]*)?
-STRING→ \"(\\.|[^\\"])*\"
-ID→ [a-z_][a-z0-9_\.]*
-LB→ {
-RB→ }
-COLON→ :
-EQ→ =
-END→ ;
-NULLV→ NULL
+INT → [0-9]+
+FLOAT → [+-]?[0-9]+(\.[0-9]*)?
+STRING → \"(\\.|[^\\"])*\"
+ID → [a-z_][a-z0-9_\.]*
+LB → {
+RB → }
+COLON → :
+EQ → =
+END → ;
+NULLV → NULL
+
 ```
+
 [↑ top](#config-file-parser)
 
 ## Usage
@@ -134,20 +138,12 @@ To Compile the source code, you need to install git & make. You can use the foll
 ```
 $ git clone https://github.com/lijiansong/ConfigFileParser
 $ cd ConfigFileParser
-$ make
+$ mkdir build && cd build
+$ cmake .. && make -j
+$ cd ../test
+$ ln -sf ../build/bin/config-parser
+$ ./config-parser a.config
 ```
-
-After the above cmds, you would get an executable file, named *config_parser*, and a static library suffixed by *.a*, named *lib_cfg_parser.a*. You can execute it like this( before use it you need to write a config file that is formulized by the grammar defined above ):
-
-```
-$ ./config-parser test.config
-```
-
-You can also call the static library *lib_cfg_parser.a* in your own program and use *"make clean"* cmd to delete the temporary output files.
 
 [↑ top](#config-file-parser)
-
-## Postscript
-
-To be continued...
 

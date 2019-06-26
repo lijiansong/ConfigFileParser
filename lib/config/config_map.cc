@@ -4,10 +4,10 @@
 #include <set>
 #include <sstream>
 
-#include "src/util/util.h"
-#include "src/config/config_loader.h"
-#include "src/config/tuple_parser.h"
-#include "src/config/config_map.h"
+#include "util/util.h"
+#include "config/config_loader.h"
+#include "config/tuple_parser.h"
+#include "config/config_map.h"
 
 // ConfigMap methods
 

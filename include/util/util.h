@@ -1,7 +1,7 @@
-#ifndef UTIL_TEST_UTIL_H_
-#define UTIL_TEST_UTIL_H_
+#ifndef _UTIL_H_
+#define _UTIL_H_
 
-#include <math.h>
+#include <cmath>
 #include <sys/stat.h>
 
 #include <string>
@@ -44,4 +44,4 @@ int TokenizeSlow(std::string& line, std::string *out);
 // 12.0000 -> 12.0
 void RemoveTrailingZeroes(char *value);
 
-#endif /* UTIL_TEST_UTIL_H_ */
+#endif /* _UTIL_H_ */

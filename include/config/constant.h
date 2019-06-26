@@ -1,10 +1,10 @@
-#ifndef CONFIG_CONSTANT_H_
-#define CONFIG_CONSTANT_H_
+#ifndef _CONFIG_CONSTANT_H_
+#define _CONFIG_CONSTANT_H_
 
 #include <string>
 
 // Contains a string, float, or int constant from a config file. Used
-// by the config parser: tuple.y
+// by the config parser: lang.yy
 class Constant {
 public:
   Constant(int type, const std::string *svalue);
@@ -27,4 +27,4 @@ private:
   std::string svalue_;
 };
 
-#endif /* CONFIG_CONSTANT_H_ */
+#endif /* _CONFIG_CONSTANT_H_ */

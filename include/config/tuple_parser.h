@@ -1,11 +1,11 @@
-#ifndef TUPLEPARSER_H_
-#define TUPLEPARSER_H_
+#ifndef _TUPLE_PARSER_H_
+#define _TUPLE_PARSER_H_
 
 #include <map>
 #include <string>
 
-#include "src/config/config_map_builder.h"
-#include "src/config/config_map.h"
+#include "config/config_map_builder.h"
+#include "config/config_map.h"
 
 // Example config file:
 // a {
@@ -40,4 +40,4 @@ ConfigMap *parse_config_string(const std::string& input_string);
 // Parses from a file. Handles includes.
 ConfigMap *parse_config_file(const std::string& input_file);
 
-#endif /* TUPLEPARSER_H_ */
+#endif /* _TUPLE_PARSER_H_ */

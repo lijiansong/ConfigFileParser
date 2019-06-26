@@ -1,4 +1,4 @@
-#include "src/config/constant.h"
+#include "config/constant.h"
 
 Constant::Constant(int type, const std::string *svalue) {
   type_ = type;

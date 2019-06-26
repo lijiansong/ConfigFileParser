@@ -1,12 +1,12 @@
-#ifndef CONFIG_CONFIGMAP_H_
-#define CONFIG_CONFIGMAP_H_
+#ifndef _CONFIG_CONFIG_MAP_H_
+#define _CONFIG_CONFIG_MAP_H_
 
 #include <string>
 #include <list>
 #include <map>
 #include <vector>
 
-typedef std::pair<std::string, std::string> StringPair;
+using StringPair = std::pair<std::string, std::string>;
 
 // Holds key value pairs used for configuration.
 // The ConfigMap is the output of parsing a text config file.
@@ -87,4 +87,4 @@ private:
   std::map<std::string, std::string> data_;
 };
 
-#endif /* CONFIG_CONFIGMAP_H_ */
+#endif /* _CONFIG_CONFIG_MAP_H_ */

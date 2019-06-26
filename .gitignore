@@ -1,47 +1,76 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+#==============================================================================#
+# This file specifies intentionally untracked files that git should ignore.
+# See: http://www.kernel.org/pub/software/scm/git/docs/gitignore.html
+#
+# This file is intentionally different from the output of `git svn show-ignore`,
+# as most of those are useless.
+#==============================================================================#
 
-# Folder config file
-Desktop.ini
+#==============================================================================#
+# File extensions to be ignored anywhere in the tree.
+#==============================================================================#
+# Temp files created by most text editors.
+*~
+# Merge files created by git.
+*.orig
+# Byte compiled python modules.
+*.pyc
+# vim swap files
+.*.sw?
+.sw?
+#OS X specific files.
+.DS_store
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# Nested build directory
+/build
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+#==============================================================================#
+# Explicit files to ignore (only matches one).
+#==============================================================================#
+# Various tag programs
+/tags
+/TAGS
+/GPATH
+/GRTAGS
+/GSYMS
+/GTAGS
+.gitusers
+autom4te.cache
+cscope.files
+cscope.out
+autoconf/aclocal.m4
+autoconf/autom4te.cache
+/compile_commands.json
 
-# Windows shortcuts
-*.lnk
+#==============================================================================#
+# Directories to ignore (do not add trailing '/'s, they skip symlinks).
+#==============================================================================#
+# External projects that are tracked independently.
+projects/*
+!projects/*.*
+!projects/Makefile
+runtimes/*
+!runtimes/*.*
+# Clang, which is tracked independently.
+tools/clang
+# LLDB, which is tracked independently.
+tools/lldb
+# lld, which is tracked independently.
+tools/lld
+# llgo, which is tracked independently.
+tools/llgo
+# Polly, which is tracked independently.
+tools/polly
+# avrlit, which is tracked independently.
+tools/avrlit
+# Sphinx build tree, if building in-source dir.
+docs/_build
+# VS2017 and VSCode config files.
+.vscode
+.vs
 
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+#==============================================================================#
+# Files created in tree by the Go bindings.
+#==============================================================================#
+bindings/go/llvm/llvm_config.go
+bindings/go/llvm/workdir
